@@ -29,17 +29,23 @@
         console.log('SUSOS');
         const btn = document.getElementById('startStream');
         const img1 = document.getElementById('im');
+        const imHead = document.getElementById('im-header');
         btn.addEventListener('click', e => {
           if (btn.innerHTML == 'Start Capturing') {
             img1.src = "{{ url_for('video_feed') }}";
             btn.innerHTML = 'Stop Capturing';
             btn.classList.remove('btn-primary');
             btn.classList.add('btn-danger');
+            imHead.innerHTML = 'Starting Camera...';
+            window.setTimeout(() => {
+              imHead.innerHTML = 'Streaming...';
+            }, 4000);
           } else {
             img1.src = '../static/assets/img/avatars/coverImage3.png';
             btn.innerHTML = 'Start Capturing';
             btn.classList.remove('btn-danger');
             btn.classList.add('btn-primary');
+            imHead.innerHTML = 'Click start button to start streaming';
           }
         });
       });
@@ -107,8 +113,8 @@
         "
         id="vid"
       >
-        <h3 class="mt-5" style="justify-content: center; align-items: center">
-          Live Streaming
+        <h3 class="mt-5" id="im-header">
+          Click start button to start streaming
         </h3>
         <img
           id="im"
