@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>E-COV</title>
+    <link
+      rel="stylesheet"
+      href="../static/assets/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/assets/fonts/simple-line-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
+    />
+    <link rel="stylesheet" href="../static/assets/css/smoothproducts.css" />
+    <script>
+      window.addEventListener('load', e => {
+        console.log('SUSOS');
+        const btn = document.getElementById('startStream');
+        const img1 = document.getElementById('im');
+        btn.addEventListener('click', e => {
+          if (btn.innerHTML == 'Start Capturing') {
+            img1.src = "{{ url_for('video_feed') }}";
+            btn.innerHTML = 'Stop Capturing';
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-danger');
+          } else {
+            img1.src = '../static/assets/img/avatars/avatar1.jpg';
+            btn.innerHTML = 'Start Capturing';
+            btn.classList.remove('btn-danger');
+            btn.classList.add('btn-primary');
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <nav
+      class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand logo" href="#">E-COV</a
+        ><button
+          data-toggle="collapse"
+          class="navbar-toggler"
+          data-target="#navcol-1"
+        >
+          <span class="sr-only">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item"></li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-us.html">About Us</a>
+            </li>
+            <li class="nav-item"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main class="page landing-page">
+      <section
+        class="clean-block clean-hero"
+        style="
+          background-image: url('../static/assets/img/tech/covid.jpeg');
+          color: rgba(9, 162, 255, 0.8);
+        "
+      >
+        <div class="text">
+          <h2>E-COV</h2>
+          <p>
+            Detect, recognize and get alert of people not wearing face mask in
+            your organization today!
+          </p>
+          <a href="#vid">
+            <button class="btn btn-outline-light btn-lg" type="button">
+              Start
+            </button></a
+          >
+        </div>
+      </section>
+      <section
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 3rem;
+        "
+        id="vid"
+      >
+        <h3 class="mt-5" style="justify-content: center; align-items: center">
+          Live Streaming
+        </h3>
+        <img
+          id="im"
+          src="../static/assets/img/avatars/avatar1.jpg"
+          width="950px"
+          height="420px"
+          style="justify-content: center; align-items: center; margin: 1rem"
+        />
+        <button id="startStream" class="btn btn-primary">
+          Start Capturing
+        </button>
+      </section>
+      <section class="clean-block about-us">
+        <div class="container">
+          <div class="block-heading">
+            <h2 class="text-info">About Us</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam
+              urna, dignissim nec auctor in, mattis vitae leo.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer dark">
+      <div class="footer-copyright">
+        <p>© 2020 Copyright Text</p>
+      </div>
+    </footer>
+    <script src="../static/assets/js/jquery.min.js"></script>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="../static/assets/js/smoothproducts.min.js"></script>
+    <script src="../static/assets/js/theme.js"></script>
+  </body>
+</html>
