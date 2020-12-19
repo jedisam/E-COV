@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -37,27 +38,29 @@ html, body {
   max-width: 50px;
 }
 
-.sp-thumbs a:link, .sp-thumbs a:visited {
+.sp-thumbs a:link,
+.sp-thumbs a:visited {
   width: 50px;
   height: 50px;
   overflow: hidden;
-  opacity: .3;
+  opacity: 0.3;
   display: inline-block;
   background-size: cover;
   background-position: center;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -ms-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .sp-thumbs a:hover {
   opacity: 1;
 }
 
-.sp-thumbs a:active, .sp-current {
-  opacity: 1!important;
+.sp-thumbs a:active,
+.sp-current {
+  opacity: 1 !important;
   position: relative;
 }
 
@@ -94,7 +97,7 @@ html, body {
   height: 100%;
   width: 100%;
   background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, .9);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 1031;
   display: none;
   cursor: pointer;
@@ -112,7 +115,8 @@ html, body {
   border: 2px solid #fff;
 }
 
-#sp-prev, #sp-next {
+#sp-prev,
+#sp-next {
   position: absolute;
   top: 50%;
   margin-top: -25px;
@@ -126,7 +130,7 @@ html, body {
   width: 50px;
   height: 50px;
   box-sizing: border-box;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 #sp-prev {
@@ -142,6 +146,11 @@ html, body {
   left: 7px;
 }
 
+/* nav {
+  padding-top: 0.1rem !important;
+  padding-bottom: 0.1rem !important;
+} */
+
 #sp-next {
   right: 10px;
 }
@@ -155,7 +164,8 @@ html, body {
   left: 18px;
 }
 
-#sp-prev:hover, #sp-next:hover {
+#sp-prev:hover,
+#sp-next:hover {
   background: #444;
 }
 
@@ -166,10 +176,10 @@ html, body {
 }
 
 @media screen and (max-width: 400px) {
-  #sp-prev, #sp-next {
+  #sp-prev,
+  #sp-next {
     top: auto;
     margin-top: 0;
     bottom: 25px;
   }
 }
-

@@ -16,8 +16,8 @@ yid_counter = 0
 kal_counter = 0
 
 person_to_be_sent = ''
-img1 = face_recognition.load_image_file('yid5.jpg')
-img2 = face_recognition.load_image_file('kl.jpg')
+img1 = face_recognition.load_image_file('./static/assets/img/avatars/yid.jpg')
+img2 = face_recognition.load_image_file('./static/assets/img/avatars/kal.jpg')
 
 face_encoding1 = face_recognition.face_encodings(img1)[0]
 face_encoding2 = face_recognition.face_encodings(img2)[0]
@@ -152,7 +152,7 @@ weightsPath = r"face_detector/res10_300x300_ssd_iter_140000.caffemodel"
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 # load the face mask detector model from disk
-maskNet = load_model("mask_detector.model")
+maskNet = load_model("face_mask.model")
 
 
 class VideoCamera(object):
@@ -205,21 +205,21 @@ class VideoCamera(object):
             # print('STARTX ', startX)
             # print('ENDX: ', endX)
             cv2.line(image, (startX, startY),
-                     (startX + int((endX - startX) / 4), startY), color, 2)
+                     (startX + int((endX - startX) / 4), startY), color, 4)
             cv2.line(image, (int(startX + endX / 4), startY),
-                     (endX, startY), color, 2)
+                     (endX, startY), color, 4)
             cv2.line(image, (startX, startY),
-                     (startX, startY + int((endY - startY) / 4)), color, 2)
+                     (startX, startY + int((endY - startY) / 4)), color, 4)
             cv2.line(image, (startX, endY - int((endY - startY)/4)),
-                     (startX, endY),  color, 2)
+                     (startX, endY),  color, 4)
             cv2.line(image, (startX, endY),
-                     (startX + int((endX - startX) / 4), endY), color, 2)
+                     (startX + int((endX - startX) / 4), endY), color, 4)
             cv2.line(image, (int(startX + endX / 4), endY),
-                     (endX, endY), color, 2)
+                     (endX, endY), color, 4)
             cv2.line(image, (endX, startY),
-                     (endX, startY + int((endY - startY) / 4)), color, 2)
+                     (endX, startY + int((endY - startY) / 4)), color, 4)
             cv2.line(image, (endX, endY - int((endY - startY)/4)),
-                     (endX, endY),  color, 2)
+                     (endX, endY),  color, 4)
 
         ret, jpeg = cv2.imencode('.jpg', image)
         data = []
