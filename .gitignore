@@ -1,3 +1,5 @@
 dlib
 build
 dist
+Electron/node_modules
+Electron/e-cov-linux-x64
