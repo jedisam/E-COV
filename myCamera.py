@@ -11,6 +11,7 @@ import os
 import face_recognition
 import requests
 import json
+from os.path import dirname, join
 
 yid_counter = 0
 kal_counter = 0
@@ -60,7 +61,6 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
     # pass the blob through the network and obtain the face detections
     faceNet.setInput(blob)
     detections = faceNet.forward()
-    print(detections.shape)
 
     # initialize our list of faces, their corresponding locations,
     # and the list of predictions from our face mask network
@@ -128,7 +128,7 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
             # email sending URL
             URL = "https://facemask-alert.herokuapp.com/send?name=" + person_to_be_sent
             # URL = 'http://localhost:9000/send?name=' + person_to_be_sent
-
+            print('Yeah')
             # send request to email sending api
             r = requests.post(url=URL)
             print('The result is: ', r.json())
@@ -147,12 +147,19 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
 
 
 # load our serialized face detector model from disk
-prototxtPath = r"face_detector/deploy.prototxt"
-weightsPath = r"face_detector/res10_300x300_ssd_iter_140000.caffemodel"
+prototxtPath = join(dirname(__file__), 'face_detector', "deploy.prototxt")
+# weightsPath = join(dirname(__file__), 'face_detector',
+#    "face_detector/res10_300x300_ssd_iter_140000.caffemodel")
+# prototxtPath = r"face_detector/deploy.prototxt"
+weightsPath = join(dirname(__file__), 'face_detector',
+                   "res10_300x300_ssd_iter_140000.caffemodel")
+# weightsPath = r"face_detector/res10_300x300_ssd_iter_140000.caffemodel"
 faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 # load the face mask detector model from disk
-maskNet = load_model("face_mask.model")
+maskNet = load_model(
+    join(dirname(__file__), "face_mask.model"))
+# maskNet = load_model("face_mask.model")
 
 
 class VideoCamera(object):
