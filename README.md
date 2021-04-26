@@ -101,4 +101,4 @@ pip3 install pyinstaller
 
 ## Authors
 
-- **Yididya Samuel** [Website](jedisam.github.io)
+- **Yididya Samuel** [Website](https://www.jedisam.github.io)
