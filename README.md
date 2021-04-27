@@ -88,6 +88,12 @@ pip3 install pyinstaller
    ./e-cov
    ```
 
+## Testing
+
+```bash
+   python3 test.py
+```
+
 ## Tools and Technologies used
 
 - Deep learning
